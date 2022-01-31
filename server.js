@@ -1,6 +1,6 @@
 const io = require('socket.io')({
   cors:{
-    origin: ['http://localhost:3000']
+    origin: ['https://trusting-kowalevski-f57ef4.netlify.app']
   }
 });
 const { initGame, gameLoop, getUpdatedVelocity } = require('./game');
