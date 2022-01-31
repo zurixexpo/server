@@ -10,11 +10,12 @@ const { makeid } = require('./utils');
 const state = {};
 const clientRooms = {};
 
-io.on('connection', client => {
-
-  client.on('keydown', handleKeydown);
-  client.on('newGame', handleNewGame);
-  client.on('joinGame', handleJoinGame);
+io.on('connection', socket => {
+  socket.on('message', name =>{
+		console.log(name);
+	socket.broadcast.emit('user-joined', name);
+	});
+ 
 
   function handleJoinGame(roomName) {
     const room = io.sockets.adapter.rooms[roomName];
